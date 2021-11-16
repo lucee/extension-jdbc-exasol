@@ -2,7 +2,7 @@ component extends="types.Driver" implements="types.IDatasource" {
 
 	this.className="{class-name}";
 	this.bundleName="{bundle-name}";
-	this.dsn="{connString}";
+	this.dsn="{connstr}";
 	this.type.port=this.TYPE_FREE;
 	this.type.database=this.TYPE_FREE;	
 	this.value.host="localhost";
