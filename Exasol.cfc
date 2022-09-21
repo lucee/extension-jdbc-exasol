@@ -20,11 +20,11 @@ component extends="types.Driver" implements="types.IDatasource" {
 		)
 	
 		,field(
-			"Encryption",
+			"Encryption (0=off, 1=on)",
 			"encryption",
-			"on,off",
+			"1,0",
 			false,
-			"Switches automatic encryption on or off.",
+			"Switches automatic encryption on or off (0=off, 1=on).",
 			"radio",
 			0
 		)
@@ -51,13 +51,15 @@ component extends="types.Driver" implements="types.IDatasource" {
 			"Amount of data in kB which should be obtained by Exasol during a fetch. The JVM can run out of memory if the value is too high."
 		)
 		,field(
-			"Debug",
+			"Debug (0=off, 1=on)",
 			"debug",
-			"on,off",
+			"1,0",
 			false,
-			"Switches on the driver's log function. The driver then writes a log file named jdbc_timestamp.log for each established connection
-			These files contain information on the called driver methods and the progress of the JDBC connection. It can assist the Exasol Support in the diagnosis of problems.",
+			"Switches on the driver's log function. The driver then writes a log file named jdbc_timestamp.log for each established connection.
+			These files contain information on the called driver methods and the progress of the JDBC connection.
+			It can assist the Exasol Support in the diagnosis of problems.",
 			"radio"
+			,0
 		)
 		,field(
 			"Log Directory",
@@ -102,29 +104,32 @@ component extends="types.Driver" implements="types.IDatasource" {
 			"Defines the time (in seconds) for a statement to run before it is automatically aborted. 0 == unlimited."
 		)
 		,field(
-			"Super Connection",
+			"Super Connection (0=off, 1=on)",
 			"superconnection",
-			"on,off",
+			"1,0",
 			false,
 			"Only the SYS user can set the parameter.
 			superconnection should only be used in case of significant performance problems where it is impossible to log in and execute queries within a reasonable time. By that parameter you can analyze the system and kill certain processes which cause the problem",
 			"radio"
+			,0
 		)
 		,field(
-			"Worker",
+			"Worker (0=off, 1=on)",
 			"worker",
-			"on,off",
+			"1,0",
 			false,
 			"The sub-connections for parallel read and insert have this flag switched on.",
 			"radio"
+			,0
 		)
 		,field(
-			"Worker Token",
+			"Worker Token (0=off, 1=on)",
 			"workertoken",
-			"on,off",
+			"1,0",
 			false,
 			"Is necessary to establish parallel sub-connections.",
 			"radio"
+			,0
 		)
 		,field(
 			"Connection Pool Size",
@@ -134,13 +139,14 @@ component extends="types.Driver" implements="types.IDatasource" {
 			"Changes the maximum size of the connection pool. You can change it only once in the driver instance. Valid values: 0<connectionPoolSize<8192"
 		)
 		,field(
-			"Snapshot Transactions",
+			"Snapshot Transactions (0=off, 1=on)",
 			"snapshottransactions",
-			"on,off",
+			"1,0",
 			false,
 			"The parameter defines the transaction Snapshot Mode for the connection. The default value for the parameter is 0.
 			Set the parameter to 1 to enable Snapshot Mode for system tables.",
 			"radio"
+			,0
 		)
 		,field(
 			"Authentication Method",
@@ -150,21 +156,33 @@ component extends="types.Driver" implements="types.IDatasource" {
 			"Specifies the authentication method for OpenID.",
 			"radio"
 		)
+
 		,field(
-			"Validate Server Certificate",
+			"Fingerprint",
+			"fingerprint",
+			"",
+			false,
+			"Fingerprint for the connection. To disable TLS validations, use NOCERTCHECK. NOCERTCHECK is case insensitive."
+		)
+
+		
+		,field(
+			"Validate Server Certificate (0=off, 1=on)",
 			"validateservercertificate",
-			"on,off",
+			"1,0",
 			false,
 			"Enables or disables the TLS server certificate validation.",
 			"radio"
+			,0
 		)
 		,field(
-			"Legacy Encryption",
+			"Legacy Encryption (0=off, 1=on)",
 			"legacyencryption",
-			"on,off",
+			"1,0",
 			false,
 			"Enables use of the old ChaCha encryption for the client-server communication and disables the new TLS encryption.",
-			"radio"
+			"radio",
+			0
 		)
 		,field(
 			"Socket Factory",
@@ -174,12 +192,13 @@ component extends="types.Driver" implements="types.IDatasource" {
 			"Specifies the name of a SocketFactory that should be used while connecting to the server."
 		)
 		,field(
-			"Enable Numeric Type Conversion",
+			"Enable Numeric Type Conversion (0=off, 1=on)",
 			"enablenumerictypeconversion",
-			"on,off",
+			"1,0",
 			false,
 			"The driver will show column decimal data types of a result set that can be converted to integer types as int or longint.",
 			"radio"
+			,0
 		)
 
 
